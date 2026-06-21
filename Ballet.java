@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Ballet extends MusicalShow {
-    private final String choreographer;
+    protected final String choreographer;
 
     public Ballet(
             String title,
@@ -14,9 +14,5 @@ public class Ballet extends MusicalShow {
     ) {
         super(title, duration, director, listOfActors, musicAuthor, librettoText);
         this.choreographer = choreographer;
-    }
-
-    public String getChoreographer() {
-        return choreographer;
     }
 }
