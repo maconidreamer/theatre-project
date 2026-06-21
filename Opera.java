@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Opera extends MusicalShow {
-    private final int choirSize;
+    protected final int choirSize;
 
     public Opera(
             String title,
@@ -14,9 +14,5 @@ public class Opera extends MusicalShow {
     ) {
         super(title, duration, director, listOfActors, musicAuthor, librettoText);
         this.choirSize = choirSize;
-    }
-
-    public int getChoirSize() {
-        return choirSize;
     }
 }
