@@ -1,32 +1,16 @@
 import java.util.ArrayList;
 
 public class Show {
-    private final String title;
-    private final int duration;
-    private final Director director;
-    private final ArrayList<Actor> listOfActors;
+    protected final String title;
+    protected final int duration;
+    protected final Director director;
+    protected final ArrayList<Actor> listOfActors;
 
     public Show(String title, int duration, Director director, ArrayList<Actor> listOfActors) {
         this.title = title;
         this.duration = duration;
         this.director = director;
         this.listOfActors = listOfActors;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public Director getDirector() {
-        return director;
-    }
-
-    public ArrayList<Actor> getListOfActors() {
-        return listOfActors;
     }
 
     public void printDirectorInfo() {
@@ -51,16 +35,29 @@ public class Show {
     }
 
     public void replaceActor(Actor newActor, String oldActorSurname) {
+        int count = 0;
+        int index = -1;
+
         for (int i = 0; i < listOfActors.size(); i++) {
             Actor actor = listOfActors.get(i);
 
-            if (actor.getSurname().equals(oldActorSurname)) {
-                listOfActors.set(i, newActor);
-                return;
+            if (actor.surname.equals(oldActorSurname)) {
+                count++;
+                index = i;
             }
         }
 
-        System.out.println("Актёра с фамилией " + oldActorSurname + " нет в спектакле.");
+        if (count == 0) {
+            System.out.println("Актёра с фамилией " + oldActorSurname + " нет в спектакле.");
+            return;
+        }
+
+        if (count > 1) {
+            System.out.println("Найдено несколько актёров с фамилией " + oldActorSurname + ". Замена невозможна.");
+            return;
+        }
+
+        listOfActors.set(index, newActor);
     }
 
     @Override
