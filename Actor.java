@@ -8,34 +8,24 @@ public class Actor extends Person {
         this.height = height;
     }
 
-    public int getHeight() {
-        return height;
-    }
-
     @Override
     public String toString() {
-        return getName() + " " + getSurname() + " (" + height + " см)";
+        return super.toString() + ", рост: " + height;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-
-        if (obj == null || getClass() != obj.getClass()) {
+        if (!super.equals(obj)) {
             return false;
         }
 
         Actor actor = (Actor) obj;
 
-        return height == actor.height
-                && getName().equals(actor.getName())
-                && getSurname().equals(actor.getSurname());
+        return height == actor.height;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getSurname(), height);
+        return Objects.hash(super.hashCode(), height);
     }
 }
