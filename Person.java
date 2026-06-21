@@ -29,12 +29,11 @@ public class Person {
         Person person = (Person) obj;
 
         return Objects.equals(name, person.name)
-                && Objects.equals(surname, person.surname)
-                && gender == person.gender;
+                && Objects.equals(surname, person.surname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, gender);
+        return Objects.hash(name, surname);
     }
 }
